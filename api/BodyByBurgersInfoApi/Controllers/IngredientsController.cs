@@ -1,26 +1,25 @@
+using BodyByBurgersInfoApi.BusinessLogic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BodyByBurgersInfoApi.Controllers;
 
 [ApiController]
-[Route("[controller]/api")]
+[Route("api/[controller]")]
 public class IngredientsController : ControllerBase
 {
     private readonly ILogger<IngredientsController> _logger;
+    private IIngredientService _ingredientService;
 
-    public IngredientsController(ILogger<IngredientsController> logger)
+    public IngredientsController(ILogger<IngredientsController> logger, IIngredientService ingredientService)
     {
         _logger = logger;
+        _ingredientService = ingredientService;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<Ingredient> Get()
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Ingredient>>> Get()
     {
-        return Enumerable.Range(1, 5).Select(index => new Ingredient
-        {
-            Id = index,
-            Name = $"Ingredient {index}",
-            Icon = "icon"
-        });
+        var results = await _ingredientService.GetIngredientsAsync();
+        return Ok(results);
     }
 }

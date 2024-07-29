@@ -8,9 +8,9 @@ namespace BodyByBurgersInfoApi.BusinessLogic
     public interface IReviewService
     {
         List<Review> GetReviews();
-        Review Create(ReviewDto review);
+        Task<Review> CreateAsync(ReviewDto review);
     }
-    
+
     public class ReviewService: IReviewService
     {
         private readonly InfoContext _dbContext;
@@ -22,11 +22,11 @@ namespace BodyByBurgersInfoApi.BusinessLogic
             _mapper = mapper;
         }
 
-        public Review Create(ReviewDto reviewDto)
+        public async Task<Review> CreateAsync(ReviewDto reviewDto)
         {
             var review = _mapper.Map<Review>(reviewDto);
             _dbContext.Reviews.Add(review);
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
             return review;
         }
 

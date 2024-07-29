@@ -39,9 +39,9 @@ namespace BodyByBurgersInfoApi.Controllers
 
         // POST: api/reviews
         [HttpPost]
-        public ActionResult<Review> CreateReview(ReviewDto review)
+        public async Task<ActionResult<Review>> CreateReview(ReviewDto review)
         {
-            _reviewService.Create(review);
+            await _reviewService.CreateAsync(review);
 
             return CreatedAtAction(nameof(GetReview), new { id = review.Id }, review);
         }
