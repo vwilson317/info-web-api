@@ -1,0 +1,9 @@
+{
+    "version": "0.2.0",
+    "configurations": [],
+    "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+http://\\S+:([0-9]+)",
+        "uriFormat": "http://localhost:%s/swagger/index.html"
+    }
+}

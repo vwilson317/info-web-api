@@ -1,0 +1,6 @@
+@BodyByBurgersInfoApi_HostAddress = http://localhost:5051
+
+GET {{BodyByBurgersInfoApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
