@@ -8,9 +8,9 @@ namespace BodyByBurgersInfoApi.Controllers;
 public class IngredientsController : ControllerBase
 {
     private readonly ILogger<IngredientsController> _logger;
-    private IIngredientService _ingredientService;
+    private IService<Ingredient, IngredientDto> _ingredientService;
 
-    public IngredientsController(ILogger<IngredientsController> logger, IIngredientService ingredientService)
+    public IngredientsController(ILogger<IngredientsController> logger, IService<Ingredient, IngredientDto> ingredientService)
     {
         _logger = logger;
         _ingredientService = ingredientService;
@@ -19,7 +19,7 @@ public class IngredientsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Ingredient>>> Get()
     {
-        var results = await _ingredientService.GetIngredientsAsync();
+        var results = await _ingredientService.GetAsync();
         return Ok(results);
     }
 }

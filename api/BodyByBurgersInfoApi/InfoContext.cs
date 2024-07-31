@@ -9,7 +9,7 @@ namespace BodyByBurgersInfoApi.BusinessLogic
         }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
-        // public DbSet<Picture> Pictures { get; set; }
+        public DbSet<Picture> Pictures { get; set; }
         // public DbSet<ReviewIngredient> ReviewIngredients { get; set; }
         // public DbSet<ReviewPicture> ReviewPictures { get; set; }
 
@@ -21,7 +21,7 @@ namespace BodyByBurgersInfoApi.BusinessLogic
             modelBuilder.Entity<Review>().ToTable("Review");
             modelBuilder.Entity<Ingredient>().ToTable("Ingredient")
             .HasData(
-                            new Ingredient { Id = 1, Name = "Lettuce", Icon = "leaf" },
+                new Ingredient { Id = 1, Name = "Lettuce", Icon = "leaf" },
                 new Ingredient { Id = 2, Name = "Tomato", Icon = "new-box" },
                 new Ingredient { Id = 3, Name = "Onion", Icon = "new-box" },
                 new Ingredient { Id = 4, Name = "Cheese", Icon = "cheese" },
@@ -35,7 +35,7 @@ namespace BodyByBurgersInfoApi.BusinessLogic
                 new Ingredient { Id = 12, Name = "Veggie Patty", Icon = "leaf" },
                 new Ingredient { Id = 13, Name = "Egg", Icon = "egg-fried" }
             );
-            // modelBuilder.Entity<Picture>().ToTable("Picture");
+            modelBuilder.Entity<Picture>().ToTable("Pic");
 
             // modelBuilder.Entity<ReviewIngredient>()
             //     .HasKey(ri => new { ri.ReviewId, ri.IngredientId });

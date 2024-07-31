@@ -9,9 +9,9 @@ namespace BodyByBurgersInfoApi.Controllers
     public class ReviewsController : ControllerBase
     {
         private readonly List<Review> _reviews;
-        private readonly IReviewService _reviewService;
+        private readonly IService<Review, ReviewDto> _reviewService;
 
-        public ReviewsController(IReviewService reviewService)
+        public ReviewsController(IService<Review, ReviewDto> reviewService)
         {
             // Initialize the list of reviews
             _reviews = new List<Review>();
@@ -20,9 +20,10 @@ namespace BodyByBurgersInfoApi.Controllers
 
         // GET: api/reviews
         [HttpGet]
-        public ActionResult<IEnumerable<Review>> GetReviews()
+        public async Task<ActionResult<IEnumerable<Review>>> GetReviews()
         {
-            return _reviews;
+            var reviews = await _reviewService.GetAsync();
+            return Ok(reviews);
         }
 
         // GET: api/reviews/{id}

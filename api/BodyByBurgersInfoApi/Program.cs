@@ -12,8 +12,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<InfoContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<IReviewService, ReviewService>();
-builder.Services.AddScoped<IIngredientService, IngredientService>();
+builder.Services.AddScoped<IService<Review, ReviewDto>, ReviewService>();
+builder.Services.AddScoped<IService<Ingredient, IngredientDto>, IngredientService>();
+builder.Services.AddScoped<IService<Picture, PictureDto>, PictureService>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 var app = builder.Build();
