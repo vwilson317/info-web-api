@@ -4,5 +4,5 @@ CREATE TABLE [dbo].[Picture]
     ReviewId INT,
     [Url] NVARCHAR(255),
     TinyUrl NVARCHAR(255),
-    CONSTRAINT FK_ReviewPic FOREIGN KEY (ReviewId) REFERENCES dbo.Review(Id)
+    CONSTRAINT FK_Review_Pic FOREIGN KEY (ReviewId) REFERENCES dbo.Review(Id)
 )

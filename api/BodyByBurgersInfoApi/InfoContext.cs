@@ -7,9 +7,9 @@ namespace BodyByBurgersInfoApi.BusinessLogic
         public InfoContext(DbContextOptions<InfoContext> options) : base(options)
         {
         }
-        public DbSet<Review> Reviews { get; set; }
-        public DbSet<Ingredient> Ingredients { get; set; }
-        public DbSet<Picture> Pictures { get; set; }
+        public DbSet<Review> Review { get; set; }
+        public DbSet<Ingredient> Ingredient { get; set; }
+        public DbSet<Picture> Picture { get; set; }
         // public DbSet<ReviewIngredient> ReviewIngredients { get; set; }
         // public DbSet<ReviewPicture> ReviewPictures { get; set; }
 
@@ -18,24 +18,25 @@ namespace BodyByBurgersInfoApi.BusinessLogic
             //const iconOptions = ['new-box', 'egg-fried', 'cheese', 'bread-slice-outline', 'leaf', 'chili-hot-outline', 'cow'];
 
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Review>().ToTable(nameof(Review));
-            modelBuilder.Entity<Ingredient>().ToTable(nameof(Ingredient))
+            modelBuilder.Entity<Review>();
+            modelBuilder.Entity<Ingredient>()
             .HasData(
-                new Ingredient { Id = 1, Name = "Lettuce", Icon = "leaf" },
-                new Ingredient { Id = 2, Name = "Tomato", Icon = "new-box" },
+                new Ingredient { Id = 1, Name = "Lettuce", Icon = "leaf"},
+                new Ingredient { Id = 2, Name = "Tomato", Icon = "new-box"},
                 new Ingredient { Id = 3, Name = "Onion", Icon = "new-box" },
-                new Ingredient { Id = 4, Name = "Cheese", Icon = "cheese" },
-                new Ingredient { Id = 5, Name = "Pickles", Icon = "new-box" },
-                new Ingredient { Id = 6, Name = "Bacon", Icon = "new-box" },
-                new Ingredient { Id = 7, Name = "Ketchup", Icon = "new-box" },
-                new Ingredient { Id = 8, Name = "Mustard", Icon = "new-box" },
-                new Ingredient { Id = 9, Name = "Mayonnaise", Icon = "new-box" },
-                new Ingredient { Id = 10, Name = "Beef Patty", Icon = "cow" },
-                new Ingredient { Id = 11, Name = "Chicken Patty", Icon = "chicken" },
-                new Ingredient { Id = 12, Name = "Veggie Patty", Icon = "leaf" },
-                new Ingredient { Id = 13, Name = "Egg", Icon = "egg-fried" }
+                new Ingredient { Id = 4, Name = "Cheese", Icon = "cheese"},
+                new Ingredient { Id = 5, Name = "Pickles", Icon = "new-box"},
+                new Ingredient { Id = 6, Name = "Bacon", Icon = "new-box"},
+                new Ingredient { Id = 7, Name = "Ketchup", Icon = "new-box"},
+                new Ingredient { Id = 8, Name = "Mustard", Icon = "new-box"},
+                new Ingredient { Id = 9, Name = "Mayonnaise", Icon = "new-box"},
+                new Ingredient { Id = 10, Name = "Beef Patty", Icon = "cow"},
+                new Ingredient { Id = 11, Name = "Chicken Patty", Icon = "chicken"},
+                new Ingredient { Id = 12, Name = "Veggie Patty", Icon = "leaf"},
+                new Ingredient { Id = 13, Name = "Egg", Icon = "egg-fried"}
             );
-            modelBuilder.Entity<Picture>().ToTable(nameof(Picture));
+            modelBuilder.Entity<Picture>().HasData(new Picture { Id = 1,
+             Url = "https://www.bodybyburgers.com/wp-content/uploads/2021/06/BBB-Logo-1.png", TinyUrl="" });
 
             // modelBuilder.Entity<ReviewIngredient>()
             //     .HasKey(ri => new { ri.ReviewId, ri.IngredientId });
