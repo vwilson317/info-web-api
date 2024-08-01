@@ -8,19 +8,19 @@ namespace BodyByBurgersInfoApi.Controllers
     [ApiController]
     public class ReviewsController : ControllerBase
     {
-        private readonly List<Review> _reviews;
+        private readonly List<ReviewDto> _reviews;
         private readonly IService<Review, ReviewDto> _reviewService;
 
         public ReviewsController(IService<Review, ReviewDto> reviewService)
         {
             // Initialize the list of reviews
-            _reviews = new List<Review>();
+            _reviews = new List<ReviewDto>();
             _reviewService = reviewService;
         }
 
         // GET: api/reviews
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Review>>> GetReviews()
+        public async Task<ActionResult<IEnumerable<ReviewDto>>> GetReviews()
         {
             var reviews = await _reviewService.GetAsync();
             return Ok(reviews);
@@ -28,7 +28,7 @@ namespace BodyByBurgersInfoApi.Controllers
 
         // GET: api/reviews/{id}
         [HttpGet("{id}")]
-        public ActionResult<Review> GetReview(int id)
+        public ActionResult<ReviewDto> GetReview(int id)
         {
             var review = _reviews.Find(r => r.Id == id);
             if (review == null)
@@ -39,7 +39,7 @@ namespace BodyByBurgersInfoApi.Controllers
         }
 
         [HttpGet("count")]
-        public async Task<ActionResult<IEnumerable<Review>>> GetReviews([FromQuery] DateTime? startDate = null,
+        public async Task<ActionResult<IEnumerable<ReviewDto>>> GetReviews([FromQuery] DateTime? startDate = null,
             [FromQuery] DateTime? endDate = null)
         {
             var reviews = await _reviewService.GetAsync(r => r.Date >= (startDate ?? DateTime.MinValue) &&
@@ -49,7 +49,7 @@ namespace BodyByBurgersInfoApi.Controllers
         
         // POST: api/reviews
         [HttpPost]
-        public async Task<ActionResult<Review>> CreateReview(ReviewDto review)
+        public async Task<ActionResult<ReviewDto>> CreateReview(ReviewDto review)
         {
             await _reviewService.CreateAsync(review);
 
@@ -58,7 +58,7 @@ namespace BodyByBurgersInfoApi.Controllers
 
         // PUT: api/reviews/{id}
         [HttpPut("{id}")]
-        public IActionResult UpdateReview(int id, Review updatedReview)
+        public IActionResult UpdateReview(int id, ReviewDto updatedReview)
         {
             var review = _reviews.Find(r => r.Id == id);
             if (review == null)

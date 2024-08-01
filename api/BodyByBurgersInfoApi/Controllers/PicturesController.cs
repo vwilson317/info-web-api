@@ -15,7 +15,7 @@ public class PicturesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Picture>>> Get()
+    public async Task<ActionResult<IEnumerable<PictureDto>>> Get()
     {
         var results = await _pictureService.GetAsync();
         return Ok(results);

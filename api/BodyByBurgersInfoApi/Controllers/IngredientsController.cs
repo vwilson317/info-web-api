@@ -17,7 +17,7 @@ public class IngredientsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Ingredient>>> Get()
+    public async Task<ActionResult<IEnumerable<IngredientDto>>> Get()
     {
         var results = await _ingredientService.GetAsync();
         return Ok(results);
