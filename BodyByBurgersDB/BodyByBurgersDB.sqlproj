@@ -62,7 +62,6 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="CreateIngredient.sql" />
     <Build Include="Ingredient.sql" />
     <Build Include="Picture.sql" />
     <Build Include="Review.sql" />

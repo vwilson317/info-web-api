@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/ddb399a4-3772-4df9-bf78-e0043f2e787e/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/BodyByBurgersApi",
+    "appService.deploySubpath": "api/BodyByBurgersInfoApi"
+}
