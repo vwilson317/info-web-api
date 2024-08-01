@@ -18,8 +18,7 @@ namespace BodyByBurgersInfoApi.BusinessLogic
             //const iconOptions = ['new-box', 'egg-fried', 'cheese', 'bread-slice-outline', 'leaf', 'chili-hot-outline', 'cow'];
 
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Review>().ToTable("Review");
-            modelBuilder.Entity<Ingredient>().ToTable("Ingredient")
+            modelBuilder.Entity<Ingredient>().ToTable(nameof(Ingredient))
             .HasData(
                 new Ingredient { Id = 1, Name = "Lettuce", Icon = "leaf" },
                 new Ingredient { Id = 2, Name = "Tomato", Icon = "new-box" },
@@ -35,7 +34,8 @@ namespace BodyByBurgersInfoApi.BusinessLogic
                 new Ingredient { Id = 12, Name = "Veggie Patty", Icon = "leaf" },
                 new Ingredient { Id = 13, Name = "Egg", Icon = "egg-fried" }
             );
-            modelBuilder.Entity<Picture>().ToTable("Pic");
+            modelBuilder.Entity<Review>().ToTable(nameof(Review));
+            modelBuilder.Entity<Picture>().ToTable(nameof(Picture));
 
             // modelBuilder.Entity<ReviewIngredient>()
             //     .HasKey(ri => new { ri.ReviewId, ri.IngredientId });

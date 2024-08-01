@@ -3,12 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BodyByBurgersInfoApi.BusinessLogic
 {
-    public interface IServiceBase<TEntity, TDto>
-    {
-        Task<IEnumerable<TDto>> GetAsync();
-        Task<TDto> CreateAsync(TDto dto);
-    }
-    public abstract class ServiceBase<TEntity, TDto> : IServiceBase<TEntity, TDto>
+    public abstract class ServiceBase<TEntity, TDto> : IService<TEntity, TDto>
     where TEntity : class
     where TDto : class
     {
@@ -21,18 +16,30 @@ namespace BodyByBurgersInfoApi.BusinessLogic
             _mapper = mapper;
         }
 
-    public async Task<IEnumerable<TDto>> GetAsync()
-    {
-        var entities = await _dbContext.Set<TEntity>().ToListAsync();
-        return _mapper.Map<IEnumerable<TDto>>(entities);
-    }
+        public async Task<IEnumerable<TDto>> GetAsync()
+        {
+            var entities = await _dbContext.Set<TEntity>().ToListAsync();
+            return _mapper.Map<IEnumerable<TDto>>(entities);
+        }
 
-    public async Task<TDto> CreateAsync(TDto dto)
-    {
-        var entity = _mapper.Map<TEntity>(dto);
-        _dbContext.Set<TEntity>().Add(entity);
-        await _dbContext.SaveChangesAsync();
-        return _mapper.Map<TDto>(entity);
-    }
+        public async Task<TDto> CreateAsync(TDto dto)
+        {
+            var entity = _mapper.Map<TEntity>(dto);
+            _dbContext.Set<TEntity>().Add(entity);
+            await _dbContext.SaveChangesAsync();
+            return _mapper.Map<TDto>(entity);
+        }
+
+        public async Task<IEnumerable<TDto>> GetAsync(Func<TEntity, bool> predicate)
+        {
+            //todo: find a better way to do this
+            var entities = await Task.FromResult(_dbContext.Set<TEntity>().Where(predicate).ToList());
+            return _mapper.Map<IEnumerable<TDto>>(entities);
+        }
+
+        public Task<TDto> GetAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

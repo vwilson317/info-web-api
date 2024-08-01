@@ -63,12 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="CreateIngredient.sql" />
-    <Build Include="CreateReview.sql" />
     <Build Include="Ingredient.sql" />
     <Build Include="Picture.sql" />
     <Build Include="Review.sql" />
     <Build Include="ReviewIngredient.sql" />
-    <Build Include="sp_CreatePicture.sql" />
     <Build Include="sp_CreateReviewIngredient.sql" />
     <Build Include="sp_SearchIngredient.sql" />
   </ItemGroup>

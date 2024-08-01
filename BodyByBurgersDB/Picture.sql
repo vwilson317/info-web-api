@@ -1,4 +1,4 @@
-CREATE TABLE [dbo].[Pic]
+CREATE TABLE [dbo].[Picture]
 (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     ReviewId INT,

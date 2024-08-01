@@ -38,6 +38,15 @@ namespace BodyByBurgersInfoApi.Controllers
             return review;
         }
 
+        [HttpGet("count")]
+        public async Task<ActionResult<IEnumerable<Review>>> GetReviews([FromQuery] DateTime? startDate = null,
+            [FromQuery] DateTime? endDate = null)
+        {
+            var reviews = await _reviewService.GetAsync(r => r.Date >= (startDate ?? DateTime.MinValue) &&
+                r.Date <= (endDate ?? DateTime.Now));
+            return Ok(reviews.Count());
+        }
+        
         // POST: api/reviews
         [HttpPost]
         public async Task<ActionResult<Review>> CreateReview(ReviewDto review)
