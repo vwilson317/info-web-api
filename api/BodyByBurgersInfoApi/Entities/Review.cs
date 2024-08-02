@@ -8,8 +8,8 @@ public class Review
     public DateTimeOffset Date { get; set; }
     public decimal Rating { get; set; }
     public decimal Price { get; set; }
-    public List<Ingredient> Ingredients { get; set; }
+    public ICollection<Ingredient> Ingredients { get; set; } = [];
     public List<Picture> Pics { get; set; }
     public string Insta { get; set; }
-    public List<ReviewIngredient> ReviewIngredients { get; set; }
+
 }

@@ -11,5 +11,25 @@ namespace BodyByBurgersInfoApi.BusinessLogic
         public ReviewService(InfoContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
+
+        public override async Task<IEnumerable<ReviewDto>> GetAsync()
+        {
+            var entities = await _dbContext.Review
+                .Include(r => r.Ingredients)
+                .ToListAsync();
+            return _mapper.Map<IEnumerable<ReviewDto>>(entities);
+        }
+
+        public override async Task<ReviewDto> CreateAsync(ReviewDto dto)
+        {
+            var entity = _mapper.Map<Review>(dto);
+            entity.Ingredients = await _dbContext.Ingredient
+                .Where(i => dto.Ingredients.Select(x => x.Name).Contains(i.Name))
+                .ToListAsync();
+
+            _dbContext.Review.Add(entity);
+            await _dbContext.SaveChangesAsync();
+            return _mapper.Map<ReviewDto>(entity);
+        }
     }
 }

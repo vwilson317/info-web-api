@@ -16,13 +16,13 @@ namespace BodyByBurgersInfoApi.BusinessLogic
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<TDto>> GetAsync()
+        public virtual async Task<IEnumerable<TDto>> GetAsync()
         {
             var entities = await _dbContext.Set<TEntity>().ToListAsync();
             return _mapper.Map<IEnumerable<TDto>>(entities);
         }
 
-        public async Task<TDto> CreateAsync(TDto dto)
+        public virtual async Task<TDto> CreateAsync(TDto dto)
         {
             var entity = _mapper.Map<TEntity>(dto);
             _dbContext.Set<TEntity>().Add(entity);
