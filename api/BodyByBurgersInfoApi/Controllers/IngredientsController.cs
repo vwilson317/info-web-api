@@ -17,9 +17,12 @@ public class IngredientsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<IngredientDto>>> Get()
+    public async Task<ActionResult<IEnumerable<IngredientDto>>> Get([FromQuery] string query = "")
     {
-        var results = await _ingredientService.GetAsync();
-        return Ok(results);
+        if (string.IsNullOrEmpty(query))
+        {
+            return Ok(await _ingredientService.GetAsync());
+        }
+        return Ok(await _ingredientService.GetAsync(i => i.Name.ToLower().StartsWith(query.ToLower())));
     }
 }
