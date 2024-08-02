@@ -1,0 +1,1 @@
+dotnet ef database update --connection 'Server=tcp:bodybyburgers.database.windows.net,1433;Initial Catalog=BodyByBurgersDB;Persist Security Info=False;User ID=serviceAccount;Password=Prod1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;'
