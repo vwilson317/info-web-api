@@ -25,4 +25,11 @@ public class IngredientsController : ControllerBase
         }
         return Ok(await _ingredientService.GetAsync(i => i.Name.ToLower().StartsWith(query.ToLower())));
     }
+
+    [HttpPost]
+    public async Task<ActionResult<IngredientDto>> Post([FromBody] IngredientDto ingredientDto)
+    {
+        var createdIngredient = await _ingredientService.CreateAsync(ingredientDto);
+        return CreatedAtAction(nameof(Get), new { id = createdIngredient.Id }, createdIngredient);
+    }
 }
