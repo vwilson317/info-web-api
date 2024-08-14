@@ -10,8 +10,10 @@ public class ReviewDto
     public DateTimeOffset Date { get; set; }
     public decimal Rating { get; set; }
     public decimal Price { get; set; }
-    public List<IngredientDto> Ingredients { get; set; }
-    public List<Picture> Pics { get; set; }
     [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-    public string Insta { get; set; }
+    public List<IngredientDto> Ingredients { get; set; } = null;
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public List<Picture> Pics { get; set; } = null;
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string Insta { get; set; } = null;
 }

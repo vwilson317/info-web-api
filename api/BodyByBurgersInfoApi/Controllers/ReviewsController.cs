@@ -23,7 +23,7 @@ namespace BodyByBurgersInfoApi.Controllers
         public async Task<ActionResult<IEnumerable<ReviewDto>>> GetReviews()
         {
             var reviews = await _reviewService.GetAsync();
-            return Ok(reviews);
+            return Ok(reviews.OrderByDescending(r => r.Date));
         }
 
         // GET: api/reviews/{id}

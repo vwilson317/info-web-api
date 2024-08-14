@@ -9,7 +9,6 @@ public class Review
     public decimal Rating { get; set; }
     public decimal Price { get; set; }
     public ICollection<Ingredient> Ingredients { get; set; } = [];
-    public List<Picture> Pics { get; set; }
+    public List<Picture> Pics { get; set; } = [];
     public string Insta { get; set; }
-
 }
