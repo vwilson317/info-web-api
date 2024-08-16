@@ -65,6 +65,12 @@ new Ingredient { Id = (int)IngredientType.CaramelizedOnions, Name = "Caramelized
 new Ingredient { Id = (int)IngredientType.WagyuBeef, Name = "Wagyu Beef", Icon = "cow" },
 new Ingredient { Id = (int)IngredientType.SpecialSauce, Name = "Special Sauce", Icon = "star" },
 new Ingredient { Id = (int)IngredientType.BlackAngus, Name = "Black Angus", Icon = "cow" },
+new Ingredient { Id = (int)IngredientType.SteakSauce, Name = "Stack Sauce", Icon = "liquid-spot" },
+new Ingredient { Id = (int)IngredientType.Fries, Name = "Fries", Icon = "new-box" },
+new Ingredient { Id = (int)IngredientType.Chillies, Name = "Chillies", Icon = "chili-hot-outline" },
+new Ingredient { Id = (int)IngredientType.FriedJalapenos, Name = "Fried Jalapenos", Icon = "chili-hot-outline" },
+new Ingredient { Id = (int)IngredientType.RedOnions, Name = "Red Onions", Icon = "new-box" },
+new Ingredient { Id = (int)IngredientType.GroundRibEye, Name = "Ground Rib-Eye", Icon = "cow" },
         };
     }
 
@@ -226,7 +232,7 @@ new Ingredient { Id = (int)IngredientType.BlackAngus, Name = "Black Angus", Icon
             Id = 12,
             Date =  new DateTimeOffset(new DateTime(2024, 8, 11)),
             Location = "Honest Burger (London)",
-            Name = "Double Smash",
+            Name = "Smashed By Honest",
             Description = @"crispy with an explosion of sayory favor. Only thing is I wish it was bigger.
              Luckily i ordered another one",
             Rating = new decimal(5),
@@ -258,6 +264,32 @@ new Ingredient { Id = (int)IngredientType.BlackAngus, Name = "Black Angus", Icon
             GeoLocation = "n/a",
             Insta = "",
         },
+            new Review(){
+            Id = 15,
+            Date =  new DateTimeOffset(new DateTime(2024, 8, 5)),
+            Location = "Bj's (Rancho Cucamonga)",
+            Name = "Crispy Jalapeno Burger",
+            Description = @"One of my favorite chain restuarant burger. Brings back memories of having them with my mom in florida.
+            Very good burger. Right amount of spice. Meat was cooked prefect for medium rare.",
+            Rating= new decimal(5),
+            Price = new decimal(0),
+            GeoLocation = "n/a",
+            Insta = "",
+        },
+                    new Review(){
+            Id = 16,
+            Date =  new DateTimeOffset(new DateTime(2024, 8, 5)),
+            Location = "Outpost (Cabo San Lucas)",
+            Name = "Op Burger",
+            Description = @"meat was cooked perfectly for medium rare. seasoned well. maybe a bit too much lettuce but it was fresh and added a nice crispy crunch. 
+            bun covered the burger perfectly. i was able to eat it without it falling apart. bacon was cooked well. had a little crunch to it. 
+            ingredients: ground rib eye patty*, mozzarella cheese, bacon, lettuce
+            included potato wedges. Address: Blvd. Paseo de la Marina S/N, Centro, 23450 Cabo San Lucas, B.C.S., Mexico",
+            Rating= new decimal(5),
+            Price = new decimal(17.50),
+            GeoLocation = "n/a",
+            Insta = "https://www.instagram.com/outpostcabo?igsh=cjc3eDhkNHl2N29h",
+        },
          };
     }
 
@@ -276,6 +308,69 @@ new Ingredient { Id = (int)IngredientType.BlackAngus, Name = "Black Angus", Icon
             new  IngredientReview { ReviewId = Reviews.ElementAt(2).Id, IngredientsId = Ingredients.ElementAt(4).Id },
             new  IngredientReview { ReviewId = Reviews.ElementAt(2).Id, IngredientsId = Ingredients.ElementAt((int)IngredientType.BriocheBun).Id },
 
+            // smoke boys
+            new IngredientReview {ReviewId = Reviews.ElementAt(4).Id,
+            IngredientsId = (int)IngredientType.BeefPatty},
+            new IngredientReview {ReviewId = Reviews.ElementAt(4).Id,
+            IngredientsId = (int)IngredientType.American},
+            new IngredientReview {ReviewId = Reviews.ElementAt(4).Id,
+            IngredientsId = (int)IngredientType.Jalapenos},
+            new IngredientReview {ReviewId = Reviews.ElementAt(4).Id,
+            IngredientsId = (int)IngredientType.Chillies},
+            new IngredientReview {ReviewId = Reviews.ElementAt(4).Id,
+            IngredientsId = (int)IngredientType.SpecialSauce},
+            new IngredientReview {ReviewId = Reviews.ElementAt(4).Id,
+            IngredientsId = (int)IngredientType.BriocheBun},
+
+            // nathans
+            new IngredientReview {ReviewId = Reviews.ElementAt(9).Id,
+            IngredientsId = (int)IngredientType.BeefPatty},
+            new IngredientReview {ReviewId = Reviews.ElementAt(9).Id,
+            IngredientsId = (int)IngredientType.American},
+            new IngredientReview {ReviewId = Reviews.ElementAt(9).Id,
+            IngredientsId = (int)IngredientType.Ketchup},
+            new IngredientReview {ReviewId = Reviews.ElementAt(9).Id,
+            IngredientsId = (int)IngredientType.Onion},
+
+            new IngredientReview {ReviewId = Reviews.ElementAt(10).Id,
+            IngredientsId = (int)IngredientType.BeefPatty},
+             new IngredientReview {ReviewId = Reviews.ElementAt(10).Id,
+            IngredientsId = (int)IngredientType.American},
+             new IngredientReview {ReviewId = Reviews.ElementAt(10).Id,
+            IngredientsId = (int)IngredientType.SteakSauce},
+            new IngredientReview {ReviewId = Reviews.ElementAt(10).Id,
+            IngredientsId = (int)IngredientType.Mayonnaise},
+            new IngredientReview {ReviewId = Reviews.ElementAt(10).Id,
+            IngredientsId = (int)IngredientType.CaramelizedOnions},
+
+            new IngredientReview {ReviewId = Reviews.ElementAt(11).Id,
+            IngredientsId = (int)IngredientType.BeefPatty},
+             new IngredientReview {ReviewId = Reviews.ElementAt(11).Id,
+            IngredientsId = (int)IngredientType.American},
+             new IngredientReview {ReviewId = Reviews.ElementAt(11).Id,
+            IngredientsId = (int)IngredientType.Onion},
+            new IngredientReview {ReviewId = Reviews.ElementAt(11).Id,
+            IngredientsId = (int)IngredientType.Pickles},
+            new IngredientReview {ReviewId = Reviews.ElementAt(11).Id,
+            IngredientsId = (int)IngredientType.Mustard},
+             new IngredientReview {ReviewId = Reviews.ElementAt(11).Id,
+            IngredientsId = (int)IngredientType.Mayo},
+
+             new IngredientReview {ReviewId = Reviews.ElementAt(12).Id,
+            IngredientsId = (int)IngredientType.BeefPatty},
+             new IngredientReview {ReviewId = Reviews.ElementAt(12).Id,
+            IngredientsId = (int)IngredientType.Cheddar},
+             new IngredientReview {ReviewId = Reviews.ElementAt(12).Id,
+            IngredientsId = (int)IngredientType.Bacon},
+            new IngredientReview {ReviewId = Reviews.ElementAt(12).Id,
+            IngredientsId = (int)IngredientType.HotSauce},
+            new IngredientReview {ReviewId = Reviews.ElementAt(12).Id,
+            IngredientsId = (int)IngredientType.Fries},
+             new IngredientReview {ReviewId = Reviews.ElementAt(12).Id,
+            IngredientsId = (int)IngredientType.Lettuce},
+             new IngredientReview {ReviewId = Reviews.ElementAt(12).Id,
+            IngredientsId = (int)IngredientType.Jalapenos},
+
             new IngredientReview {ReviewId = Reviews.ElementAt(13).Id,
             IngredientsId = (int)IngredientType.American},
              new IngredientReview {ReviewId = Reviews.ElementAt(13).Id,
@@ -286,6 +381,28 @@ new Ingredient { Id = (int)IngredientType.BlackAngus, Name = "Black Angus", Icon
             IngredientsId = (int)IngredientType.Onion},
             new IngredientReview {ReviewId = Reviews.ElementAt(13).Id,
             IngredientsId = (int)IngredientType.Jalapenos},
+
+            //bj's
+            new IngredientReview {ReviewId = Reviews.ElementAt(14).Id,
+            IngredientsId = (int)IngredientType.FriedJalapenos},
+            new IngredientReview {ReviewId = Reviews.ElementAt(14).Id,
+            IngredientsId = (int)IngredientType.PepperJack},
+            new IngredientReview {ReviewId = Reviews.ElementAt(14).Id,
+            IngredientsId = (int)IngredientType.Mayonnaise},
+            new IngredientReview {ReviewId = Reviews.ElementAt(14).Id,
+            IngredientsId = (int)IngredientType.Onion},
+            new IngredientReview {ReviewId = Reviews.ElementAt(14).Id,
+            IngredientsId = (int)IngredientType.RedOnions},
+
+            //op burger
+               new IngredientReview {ReviewId = Reviews.ElementAt(15).Id,
+            IngredientsId = (int)IngredientType.GroundRibEye},
+            new IngredientReview {ReviewId = Reviews.ElementAt(15).Id,
+            IngredientsId = (int)IngredientType.Mozzarella},
+            new IngredientReview {ReviewId = Reviews.ElementAt(15).Id,
+            IngredientsId = (int)IngredientType.Lettuce},
+            new IngredientReview {ReviewId = Reviews.ElementAt(15).Id,
+            IngredientsId = (int)IngredientType.Bacon},
         };
     }
 

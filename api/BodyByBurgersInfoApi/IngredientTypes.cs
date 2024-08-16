@@ -46,5 +46,11 @@ public enum IngredientType
     CaramelizedOnions,
     WagyuBeef,
     SpecialSauce,
-    BlackAngus
+    BlackAngus,
+    SteakSauce,
+    Fries,
+    Chillies,
+    FriedJalapenos,
+    RedOnions,
+    GroundRibEye,
 }
