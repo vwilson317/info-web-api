@@ -16,6 +16,7 @@ namespace BodyByBurgersInfoApi.BusinessLogic
         {
             var entities = await _dbContext.Review
                 .Include(r => r.Ingredients)
+                .Include(r => r.Pics)
                 .ToListAsync();
             return _mapper.Map<IEnumerable<ReviewDto>>(entities);
         }

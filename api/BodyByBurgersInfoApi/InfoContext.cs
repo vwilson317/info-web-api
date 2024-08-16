@@ -19,13 +19,25 @@ namespace BodyByBurgersInfoApi.BusinessLogic
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Review>()
-            .HasMany(r => r.Ingredients)
-            .WithMany();
+            .Property(r => r.Id)
+            .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Review>()
+                .HasMany(r => r.Ingredients)
+                .WithMany();
+
+            modelBuilder.Entity<Review>()
+                .HasMany(r => r.Pics)
+                .WithOne()
+                .HasForeignKey(p => p.ReviewId);
+
 
             modelBuilder.Entity<Ingredient>()
                 .HasData(DataSeed.Ingredients);
             modelBuilder.Entity<Review>()
                 .HasData(DataSeed.Reviews);
+            modelBuilder.Entity<Picture>()
+                .HasData(DataSeed.Pictures);
             modelBuilder.Entity("IngredientReview")
                 .HasData(DataSeed.IngredientReviews);
         }

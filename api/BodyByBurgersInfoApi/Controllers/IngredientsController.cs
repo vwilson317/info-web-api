@@ -17,12 +17,20 @@ public class IngredientsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<IngredientDto>>> Get([FromQuery] string query = "")
+    public async Task<ActionResult<IEnumerable<IngredientDto>>> Get([FromQuery] string query = "", [FromQuery] bool isTop = false)
     {
-        if (string.IsNullOrEmpty(query))
+        if(isTop && !string.IsNullOrEmpty(query)){
+            return BadRequest("Cannot filter by query and top five at the same time");
+        }
+        if (!string.IsNullOrEmpty(query))
         {
             return Ok(await _ingredientService.GetAsync());
         }
+        else if(isTop){
+            var topRecs = (await _ingredientService.GetAsync()).Take(6);
+            return Ok(topRecs); //todo implement top 5 by sum being used on all reviews
+        } 
+        
         return Ok(await _ingredientService.GetAsync(i => i.Name.ToLower().StartsWith(query.ToLower())));
     }
 
