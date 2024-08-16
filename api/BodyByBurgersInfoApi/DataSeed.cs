@@ -64,6 +64,7 @@ new Ingredient { Id =(int) IngredientType.Mushrooms, Name = "Mushrooms", Icon = 
 new Ingredient { Id = (int)IngredientType.CaramelizedOnions, Name = "Caramelized Onions", Icon = "new-box" },
 new Ingredient { Id = (int)IngredientType.WagyuBeef, Name = "Wagyu Beef", Icon = "cow" },
 new Ingredient { Id = (int)IngredientType.SpecialSauce, Name = "Special Sauce", Icon = "star" },
+new Ingredient { Id = (int)IngredientType.BlackAngus, Name = "Black Angus", Icon = "cow" },
         };
     }
 
@@ -106,7 +107,157 @@ new Ingredient { Id = (int)IngredientType.SpecialSauce, Name = "Special Sauce", 
             Rating = new decimal(3.5),
             GeoLocation = "n/a",
             Insta = "https://www.instagram.com/spitalfieldse1/"
-        }
+        },
+                new Review(){
+            Id = 4,
+            Date =  new DateTimeOffset(new DateTime(2024, 4, 9)),
+            Location = "MEATliqour",
+            Name = "Green Chili Double",
+            Description = @"a bit on the small side. messy to eat. solid but not amazing. i’ve been here before and only realized after i was on the way. the place is located in what feels like a neighborhood lol. 
+            Can’t put my finger on what i’d improve but it does leave you wanting a bit more. maybe it’s the size. smash patties were cooked medium rare and it was juicy. 
+            maybe i’m being hard on it because the burger from burgers and beyond is better and they’re very close to each other location wise. order the green chile fries to match. 
+            was less impressed by that.  the nacho cheese was a bit much. but they were tasty.
+             think the price during lunch is reasonable so i give it a little bum because of that.
+             address: 15 Hoxton Market, London N1 6HG, United Kingdom",
+            Rating = new decimal(4.5),
+            GeoLocation = "n/a",
+            Insta = ""
+        },
+        new Review(){
+            Id = 5,
+            Date =  new DateTimeOffset(new DateTime(2024, 4, 9)),
+            Location = "Smokey Boys",
+            Name = "Smokey Bad Boy",
+            Description = @"solid burger. fresh ingredients. i forgot to add an egg. meat was pretty dry.
+             very spicy which i like. didn’t have any woah factor. 
+            for the ingredients listed i expected more.
+             the bad boy sauce i think over powered the favor.",
+            Rating = new decimal(3.5),
+            Price = new decimal(16.77),
+            GeoLocation = "n/a",
+            Insta = ""
+        },
+                new Review(){
+            Id = 6,
+            Date =  new DateTimeOffset(new DateTime(2024, 4, 18)),
+            Location = "LA Central Burger",
+            Name = "Double smash (Black Angus)",
+            Description = @"egg was over cooked. tons of pickles. 
+            perfect brioche bun. meat was exceptional. probably sauced",
+            Rating = new decimal(4.5),
+            Price = new decimal(0),
+            GeoLocation = "n/a",
+            Insta = ""
+        },
+            new Review(){
+            Id = 7,
+            Date =  new DateTimeOffset(new DateTime(2024, 4, 25)),
+            Location = "Ground Burger (Lisbon)",
+            Name = "Chili Con Carne",
+            Description = @"I would have to say almost perfect. i don’t feel like i can give a perfect rating but this is damn near close. 
+            meat was cooked perfectly (medium rare). added an egg which was also cooked prefect. 
+            bacon wasn’t crispy but that could be due to the chili. japenqos were sweet than spicy.
+             overall i’m very impressed. only criticism is that when i cut it.
+             the second half didn’t have as much meat. could of been a poor knife job on my part",
+            Rating = new decimal(5),
+            Price = new decimal(32.96),
+            GeoLocation = "n/a",
+            Insta = ""
+        },
+        new Review(){
+            Id = 8,
+            Date =  new DateTimeOffset(new DateTime(2024, 4, 27)),
+            Location = "Ground Burger (Time Out Market: Lisbon)",
+            Name = "Double Cheese",
+            Description = @"having a hard time rating this. since the chili burger was amazing. this was extremely disappointing.
+             meat was cooked well done. and since it was 70% of the burger it didn’t really help the situation.
+              egg was also over cooked. i went during lunch time so maybe the crowd reduced the quality.
+            also come to the conclusion i don’t like doubles unless they’re smash patty’s.
+             just too much meat to bun for it to be enjoyable otherwise.
+             also 24 euros is a bit of a buzz kill",
+            Rating = new decimal(4),
+            Price = new decimal(26.00),
+            GeoLocation = "n/a",
+            Insta = ""
+        },
+                new Review(){
+            Id = 9,
+            Date =  new DateTimeOffset(new DateTime(2024, 4, 26)),
+            Location = "To.b (Lisbon)",
+            Name = "Hot",
+            Description = @"I added bacon. first bite i had a very fresh taste in my mouth.
+             normally don’t do lettuce but it was nice on this burger.
+              hot is definitely not proper heat. mild at best.
+               very solid. meat was cooked medium/medium rare without requesting it.
+             got sweet potato chips. they’re what you’d expect. price 15 euros",
+            Rating = new decimal(4.5),
+            Price = new decimal(16.50),
+            GeoLocation = "n/a",
+            Insta = ""
+        },
+        new Review(){
+            Id = 10,
+            Date =  new DateTimeOffset(new DateTime(2024, 4, 28)),
+            Location = "Nathan’s (Miami Airport)",
+            Name = "Double Cheese",
+            Description = @"I knew it wouldn’t be good, still managed even failed to meet my low expectations.
+             meat was dry and chewy. i didn’t even bother to eat the bun. it was an egg bun i think. very dense.
+             funny enough the ketchup made it more editable. american cheese, ketchup, raw white onions",
+            Rating = new decimal(1.0),
+            Price = new decimal(0),
+            GeoLocation = "n/a",
+            Insta = ""
+        },
+        new Review(){
+            Id = 11,
+            Date =  new DateTimeOffset(new DateTime(2024, 8, 10)),
+            Location = "Burgers and Beyond (Shoreditch London)",
+            Name = "The Bougie Burher",
+            Description = @"First impression: Saucy not in a good best way. 
+            The sauce caused the bun to become soggy and it didn't hold up well when biting. 
+            Next time get the sauce and manasise on the side. Meat was well cooked,
+            Ingredients: Dry Aged Beef Patties, Cold Smoked American Cheese, Steak Sauce 2.0, Marrownaise, Beef Fat Onions",
+            Rating = new decimal(5),
+            Price = new decimal(0),
+            GeoLocation = "n/a",
+            Insta = ""
+        },
+                new Review(){
+            Id = 12,
+            Date =  new DateTimeOffset(new DateTime(2024, 8, 11)),
+            Location = "Honest Burger (London)",
+            Name = "Double Smash",
+            Description = @"crispy with an explosion of sayory favor. Only thing is I wish it was bigger.
+             Luckily i ordered another one",
+            Rating = new decimal(5),
+            Price = new decimal(0),
+            GeoLocation = "n/a",
+            Insta = "",
+        },
+            new Review(){
+            Id = 13,
+            Date =  new DateTimeOffset(new DateTime(2024, 8, 11)),
+            Location = "Honest Burger (London)",
+            Name = "Chili Burger",
+            Description = "First bite: tasted fresh. On the smaller side of things",
+            Rating = new decimal(5),
+            Price = new decimal(0),
+            GeoLocation = "n/a",
+            Insta = "",
+        },
+            new Review(){
+            Id = 14,
+            Date =  new DateTimeOffset(new DateTime(2024, 8, 14)),
+            Location = "Five guys (London)",
+            Name = "Double Cheese",
+            Description = @"First bite: exactly what you'd expect from a smashed burger. 
+            I always added bacon, japs, mushrooms and oions. Tasted very fresh. I was satisfied by the end of it.
+             only small issue is it wasn't that hot. it was midnight so i assume that had a little to do with it.",
+            Rating = new decimal(4),
+            Price = new decimal(0),
+            GeoLocation = "n/a",
+            Insta = "",
+        },
          };
     }
 
@@ -124,11 +275,23 @@ new Ingredient { Id = (int)IngredientType.SpecialSauce, Name = "Special Sauce", 
             new  IngredientReview { ReviewId = Reviews.ElementAt(2).Id, IngredientsId = Ingredients.ElementAt(43).Id },
             new  IngredientReview { ReviewId = Reviews.ElementAt(2).Id, IngredientsId = Ingredients.ElementAt(4).Id },
             new  IngredientReview { ReviewId = Reviews.ElementAt(2).Id, IngredientsId = Ingredients.ElementAt((int)IngredientType.BriocheBun).Id },
+
+            new IngredientReview {ReviewId = Reviews.ElementAt(13).Id,
+            IngredientsId = (int)IngredientType.American},
+             new IngredientReview {ReviewId = Reviews.ElementAt(13).Id,
+            IngredientsId = (int)IngredientType.Bacon},
+             new IngredientReview {ReviewId = Reviews.ElementAt(13).Id,
+            IngredientsId = (int)IngredientType.Mushrooms},
+            new IngredientReview {ReviewId = Reviews.ElementAt(13).Id,
+            IngredientsId = (int)IngredientType.Onion},
+            new IngredientReview {ReviewId = Reviews.ElementAt(13).Id,
+            IngredientsId = (int)IngredientType.Jalapenos},
         };
     }
 
-    public static IEnumerable<Picture> SeedPictures(){
-        return new List<Picture> (){
+    public static IEnumerable<Picture> SeedPictures()
+    {
+        return new List<Picture>(){
             new Picture { Id = 1, ReviewId = Reviews.ElementAt(2).Id,
              Url = "https://pub-06851190cddc4684902b556426d2e9a1.r2.dev/IMG_4685.jpg"},
             // new Picture { Id = 2, ReviewId = Reviews.ElementAt(3).Id, Url = "https://www.instagram.com/p/CM9J9J1n1Z2/" },

@@ -45,5 +45,6 @@ public enum IngredientType
     Mushrooms,
     CaramelizedOnions,
     WagyuBeef,
-    SpecialSauce
+    SpecialSauce,
+    BlackAngus
 }
